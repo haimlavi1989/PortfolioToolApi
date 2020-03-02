@@ -17,18 +17,18 @@ class instrumentsController extends Controller
         $instruments->instrumentType = $request->instrumentType;
         $instruments->save();
   
-        return Instruments::find($instruments->id);
+        return response()->json(Instruments::find($instruments->id), 200);
     }
 
     public function read()
     {
-        return Instruments::all();
+        return response()->json(Instruments::all(), 200);
     }
 
     public function delete($id) 
     {
         Instruments::find($id)->delete();
-        return 204;
+        return response()->json(null, 204);
     }
 
 
